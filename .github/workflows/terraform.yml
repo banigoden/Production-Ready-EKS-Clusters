@@ -34,7 +34,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: eks
+        working-directory: deployment/terraform/eks
 
     env:
       AWS_REGION: eu-central-1
