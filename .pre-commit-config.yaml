@@ -22,7 +22,6 @@ repos:
     hooks:
       - id: check-github-workflows
 
-
   # YAML ####################################################################
   - repo: https://github.com/adrienverge/yamllint
     rev: v1.35.1

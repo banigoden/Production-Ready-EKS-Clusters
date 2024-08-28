@@ -1,5 +1,4 @@
-erraform {
-  required_version = "~> 1.8.4"
+terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -16,5 +15,5 @@ erraform {
 }
 
 provider "aws" {
-  region  = var.aws-region
+  region = var.aws-region
 }
