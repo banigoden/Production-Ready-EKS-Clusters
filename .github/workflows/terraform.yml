@@ -96,7 +96,7 @@ jobs:
         run: terraform fmt
 
       - name: Terraform Validate
-        working-directory: eks
+        working-directory: deployment/terraform/eks
         run: terraform validate
 
   Terraform-Action:
