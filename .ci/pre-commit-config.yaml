@@ -1,0 +1,53 @@
+---
+default_language_version:
+  ruby: 2.7.2
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: check-merge-conflict
+      - id: trailing-whitespace
+      - id: check-added-large-files
+      - id: end-of-file-fixer
+      - id: check-json
+      - id: check-toml
+      - id: check-yaml
+      - id: detect-private-key
+      - id: mixed-line-ending
+      - id: check-case-conflict
+
+  # CICD ####################################################################
+  - repo: https://github.com/sirosen/check-jsonschema
+    rev: 0.29.1
+    hooks:
+      - id: check-github-workflows
+
+  # YAML ####################################################################
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.35.1
+    hooks:
+      - id: yamllint
+        args: ['-c=.ci/yamllint']
+
+  # TERRAFORM ##############################################################
+  - repo: https://github.com/gruntwork-io/pre-commit
+    rev: v0.1.23
+    hooks:
+      - id: terraform-fmt
+      - id: terraform-validate
+      - id: tflint
+
+# MARKDOWN LINT ##############################################################
+  - repo: https://github.com/markdownlint/markdownlint
+    rev: v0.12.0
+    hooks:
+      - id: markdownlint
+
+  # COMMITIZEN #################################################################
+  - hooks:
+      - id: commitizen
+      - id: commitizen-branch
+        stages:
+          - push
+    repo: https://github.com/commitizen-tools/commitizen
+    rev: v3.28.0
