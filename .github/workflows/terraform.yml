@@ -5,18 +5,18 @@ on: # yamllint disable-line rule:truthy
   workflow_dispatch:
     inputs:
       tfvars_file:
-        description: 'Path to the .tfvars file'
+        description: '.deployment/terraform/eks'
         required: true
-        default: 'variables.tfvars'
+        default: 'dev.tfvars'
       action:
+        description: 'Action to perform'
         type: choice
-        description: 'Apply or Destroy'
-      options:
-        - plan
-        - apply
-        - destroy
-      required: true
-      default: 'apply'
+        options:
+          - plan
+          - apply
+          - destroy
+        required: true
+        default: 'apply'
 
 env:
   AWS_REGION: eu-central-1
